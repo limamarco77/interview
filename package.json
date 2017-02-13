@@ -1,0 +1,27 @@
+{
+  "name": "3bdigital-test",
+  "version": "1.0.0",
+  "description": "A quick test",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/limamarco77/interview.git"
+  },
+  "author": "Marco Lima",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/limamarco77/interview/issues"
+  },
+  "homepage": "https://github.com/limamarco77/interview#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1",
+    "singularitygs": "^1.7.1"
+  },
+  "dependencies": {
+    "singularity": "0.0.12"
+  }
+}
