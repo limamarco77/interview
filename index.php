@@ -1,3 +1,8 @@
+<?php
+include 'php/articles_parser.php';
+include 'php/events_parser.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,78 +27,19 @@
         </h2>
       </div>
       <div class="content">
-        <div class="card">
-          <h3 class="card__title">
-            Article Title
-          </h3>
-          <div class="card__media">
-            <img src="../images/image-test.png" class="card__image">
+        <?php for ($i = 0; $i < count($json_articles); ++$i): ?>
+          <div class="card" data-mh="card">
+            <h3 data-mh="card-title" class="card__title">
+              <?php print $json_articles[$i]['title']; ?>
+            </h3>
+            <div class="card__media">
+              <img src="../images/image-test.png" class="card__image">
+            </div>
+            <div class="card__content">
+              <?php print strip_tags(substr($json_articles[$i]['content'], 0, 100)) . '...'; ?>
+            </div>
           </div>
-          <div class="card__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, sapien ut pharetra commodo, ligula
-            felis varius ex, pulvinar vulputate neque tortor vel neque.
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card__title">
-            Article Title
-          </h3>
-          <div class="card__media">
-            <img src="../images/image-test.png" class="card__image">
-          </div>
-          <div class="card__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, sapien ut pharetra commodo, ligula
-            felis varius ex, pulvinar vulputate neque tortor vel neque.
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card__title">
-            Article Title
-          </h3>
-          <div class="card__media">
-            <img src="../images/image-test.png" class="card__image">
-          </div>
-          <div class="card__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, sapien ut pharetra commodo, ligula
-            felis varius ex, pulvinar vulputate neque tortor vel neque.
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card__title">
-            Article Title
-          </h3>
-          <div class="card__media">
-            <img src="../images/image-test.png" class="card__image">
-          </div>
-          <div class="card__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, sapien ut pharetra commodo, ligula
-            felis varius ex, pulvinar vulputate neque tortor vel neque.
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card__title">
-            Article Title
-          </h3>
-          <div class="card__media">
-            <img src="../images/image-test.png" class="card__image">
-          </div>
-          <div class="card__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, sapien ut pharetra commodo, ligula
-            felis varius ex, pulvinar vulputate neque tortor vel neque.
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="card__title">
-            Article Title
-          </h3>
-          <div class="card__media">
-            <img src="../images/image-test.png" class="card__image">
-          </div>
-          <div class="card__content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec convallis, sapien ut pharetra commodo, ligula
-            felis varius ex, pulvinar vulputate neque tortor vel neque.
-          </div>
-        </div>
+        <?php endfor; ?>
       </div>
     </section>
     <aside class="col">
@@ -103,61 +49,26 @@
             Events
           </h2>
         </div>
-        <div class="card__col">
-          <h3 class="card__title-col">
-            Event Title
-          </h3>
-          <div class="card__content">
-            <div class="location">
-              <span class="data-header">Location:</span> event location
-            </div>
-            <div class="date">
-              <span class="data-header">Date:</span> Thursday December 2016
-            </div>
-          </div>
-        </div>
-        <div class="card__col">
-          <h3 class="card__title-col">
-            Event Title
-          </h3>
-          <div class="card__content">
-            <div class="location">
-              <span class="data-header">Location:</span> event location
-            </div>
-            <div class="date">
-              <span class="data-header">Date:</span> Thursday December 2016
+        <?php for ($i = 0; $i < count($json_articles); ++$i): ?>
+          <div class="card__col">
+            <h3 class="card__title-col">
+              <?php print $json_events[$i]['title']; ?>
+            </h3>
+            <div class="card__content">
+              <div class="location">
+                <span class="data-header">Location:</span> <?php print $json_events[$i]['location']; ?>
+              </div>
+              <div class="date">
+                <span class="data-header">Date:</span> <?php print $json_events[$i]['date']; ?>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card__col">
-          <h3 class="card__title-col">
-            Event Title
-          </h3>
-          <div class="card__content">
-            <div class="location">
-              <span class="data-header">Location:</span> event location
-            </div>
-            <div class="date">
-              <span class="data-header">Date:</span> Thursday December 2016
-            </div>
-          </div>
-        </div>
-        <div class="card__col">
-          <h3 class="card__title-col">
-            Event Title
-          </h3>
-          <div class="card__content">
-            <div class="location">
-              <span class="data-header">Location:</span> event location
-            </div>
-            <div class="date">
-              <span class="data-header">Date:</span> Thursday December 2016
-            </div>
-          </div>
-        </div>
+        <?php endfor; ?>
       </div>
     </aside>
   </main>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/lib/jquery.matchHeight.js"></script>
 </body>
 </html>
