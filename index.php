@@ -56,7 +56,9 @@ include 'php/events_parser.php';
             </h3>
             <div class="card__content">
               <div class="location">
-                <span class="data-header">Location:</span> <?php print $json_events[$i]['location']; ?>
+                <a href="https://www.google.com/maps/place/<?php print $json_events[$i]['geo']['lat']. ',' . $json_events[$i]['geo']['lng']; ?>" target="_blank">
+                  <span class="data-header">Location:</span> <?php print $json_events[$i]['location']; ?>
+                </a>
               </div>
               <div class="date">
                 <span class="data-header">Date:</span> <?php print $json_events[$i]['date']; ?>
